@@ -1,177 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Result</title>
+    <title>中文考试成绩在线验证结果查询</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 24px;
-        }
-        h2 {
-            text-align: center; /* Center the subheading */
-            margin: 10px 0;    /* Margin for spacing */
-            font-size: 20px;   /* Font size for the subheading */
-            color: #333;       /* Color for the subheading */
-        }
-        table {
-            width: 70%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%; /* Ensures the page takes up the full height of the window */
+        width: 100%; /* Ensures the page takes up the full width of the window */
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+    }
+
+    /* Ensure all elements scale proportionally */
+    table {
+        width: 95%; /* Adjust the table width to fit better within the window */
+        margin: 10px auto; /* Center the table horizontally */
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 8px; /* Adjust padding for smaller window sizes */
+        text-align: center;
+        font-size: 14px; /* Adjust font size for smaller windows */
+    }
+
+    /* .profile-img {
+        width: 100%; /* Allow image to scale within its container */
+        /* height: auto; /* Maintain aspect ratio */
+        /* max-width: 100px; Limit the maximum size */
+        /* border-radius: 5px; Optional: Rounded corners */
+        /* display: block; */
+        /* margin: auto; Center the image */
+    /* } */
+    .profile-img {
+        width: 180px; /* Make the image fit the width of the column */
+        height: 200px; /* Maintain the aspect ratio */
+        max-width: 200px; /* Set a maximum width to keep it from getting too large */
+        border-radius: 5px; /* Optional: Adds rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for better visibility */
+        display: block; /* Ensures proper centering */
+        margin: auto; /* Centers the image horizontally in the column */
+    }
+
+    .profile-row {
+        text-align: center; /* Ensures the content in the row is centered */
+        vertical-align: middle; /* Vertically aligns the image in the cell */
+    }
+
+    h1, h2 {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+
+    .table-heading {
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        background-color: #f2f2f2;
+        padding: 8px;
+    }
+
+    .panel {
+        padding: 10px;
+        margin: auto;
+        max-width: 95%; /* Keeps the content within the viewport */
+    }
+    .well-sm {
+        padding: 9px;
+        border-radius: 3px;
+    }
+    .pannel {
+        margin-bottom: 2opx;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+    .panel-default{
+        border-color: #ddd;
+    }
+    .well-lg{
+        padding: 24px;
+        border-radius: 6px;
+    }
+    .white-row{
+        text-align: right;
+    }
+
+    /* Ensure responsive layout */
+    @media screen and (max-width: 768px) {
         th, td {
-            padding: 15px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        caption {
-            font-weight: bold;
-            padding: 10px;
-            text-align: left;
-        }
-        img {
-            width: 100px;
-            height: auto;
-        }
-        .profile-row {
-            text-align: center;
-        }
-        .center-text {
-            text-align: center;
-        }
-        .small-text {
             font-size: 12px;
-            color: #999;
-            text-align: center;
+            padding: 5px;
         }
-        .table-heading {
-            text-align: center;
-            background-color: #f2f2f2;
-            font-weight: bold;
-            padding: 15px;
-            font-size: 18px;
+
+        h1, h2 {
+            font-size: 16px;
         }
+
+        .profile-img {
+            max-width: 80px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        table {
+            width: 100%; /* Allow table to fit within smaller screens */
+        }
+
+        th, td {
+            display: block; /* Stack table rows for better readability */
+            width: 100%;
+            text-align: left;
+        }
+
+        .profile-img {
+            max-width: 70px;
+        }
+    }
+        
     </style>
 </head>
 <body>
+<div class="well-sm">
+    <center>
+        <h4>中文考试成绩在线验证结果查询</h4>
+        <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
+    </center>
+    <!-- Test Taker Information -->
+     <div class="pannel pannel-default">
+        <div class="well-lg">
+    <table>
+        <tr class="white-row">
+            <td colspan="3" class="table-title">Information of Test Taker</td>
+        </tr>
+        <tr>
+            <th class="active text-right">Name on Certificate</th>
+            <td>SHAJAN EMMANUEL</td>
+            <td rowspan="4" width="180px" class="profile-row"><img src="C:\Users\hp\OneDrive\Desktop\rohith\emmamnuuu\senti.jpg" alt="Profile Photo" class="profile-img"></td>
+        </tr>
+        <tr>
+            <th>Chinese Name</th>
+            <td>以马利</td>
+        </tr>
+        <tr>
+            <th>Nationality</th>
+            <td>澳大利亚</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="table-title">Test Information</td>
+        </tr>
+        <tr>
+            <th>Ticket No.</th>
+            <td colspan="2">H42402899705300010</td>
+        </tr>
+        <tr>
+            <th>Test Type</th>
+            <td colspan="2">HSK四级</td>
+        </tr>
+        <tr>
+            <th>Test Time</th>
+            <td colspan="2">Mar 16, 2024</td>
+        </tr>
+        <tr>
+            <th>Test Site</th>
+            <td colspan="2">丝绸之路国际教育中心</td>
+        </tr>
+    </table>
 
-    <h1>中文考试成绩在线验证结果查询</h1>
-    <h2>abc</h2> <!-- Centered subheading -->
-
-    <!-- Combined Information and Test Details Table -->
+    <!-- HSK Results -->
     <table>
         <tr>
-            <td colspan="3" class="table-heading">Information of Test Taker</td>
+            <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
         </tr>
-        <tbody>
-            <tr>
-                <th>Name on Certificate</th>
-                <td>SHAJAN EMMANUElL</td>
-                <th rowspan="4" class="profile-row">
-                    <img src="your-image-url.jpg" alt="Profile Photo">
-                </th>
-            </tr>
-            <tr>
-                <th>Chinese Name</th>
-                <td>汉可利</td>
-            </tr>
-            <tr>
-                <th>Nationality</th>
-                <td>莫扎姆比克</td>
-            </tr>
-            <tr>
-                <th>Gender</th>
-                <td>男</td>
-            </tr>
-
-            <!-- New single-row heading before Ticket No -->
-            <tr>
-                <td colspan="3" class="table-heading">Test Information</td>
-            </tr>
-
-            <tr>
-                <th>Ticket No</th>
-                <td colspan="2">H42402899705300010</td>
-            </tr>
-            <tr>
-                <th>Test Type</th>
-                <td colspan="2">HSK四级</td>
-            </tr>
-            <tr>
-                <th>Test Time</th>
-                <td colspan="2">Mar 16, 2024</td>
-            </tr>
-            <tr>
-                <th>Test Site</th>
-                <td colspan="2">丝绸之路国际教育中心</td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>听力 (Listening)</th>
+            <th>阅读 (Reading)</th>
+            <th>写作 (Writing)</th>
+            <th>Total Score</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>56</td>
+            <td>94</td>
+            <td>80</td>
+            <td>230</td>
+            <td>合格</td>
+        </tr>
     </table>
 
-    <!-- Score Table -->
+    <!-- HSKK Results -->
     <table>
-        <thead>
-            <tr>
-                <td colspan="5" class="table-heading">HSK Results (March 16, 2024)</td>
-            </tr>
-            <tr>
-                <th>听力 (Listening)</th>
-                <th>阅读 (Reading)</th>
-                <th>写作 (Writing)</th>
-                <th>Total Score</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>56</td>
-                <td>94</td>
-                <td>80</td>
-                <td>230</td>
-                <td>合格</td>
-            </tr>
-        </tbody>
+        <tr>
+            <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
+        </tr>
+        <tr>
+            <th>口试 (Speaking)</th>
+            <th>Total Score</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>42</td>
+            <td>42</td>
+            <td>不合格</td>
+        </tr>
     </table>
 
-    <!-- HSKK Test Table -->
-    <table>
-        <thead>
-            <tr>
-                <td colspan="3" class="table-heading">HSKK Results (March 16, 2024)</td>
-            </tr>
-            <tr>
-                <th>口试 (Speaking)</th>
-                <th>Total Score</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>42</td>
-                <td>42</td>
-                <td>不合格</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Footer Text -->
-    <p class="small-text">温馨提示：成绩仅供考生参考</p>
-
+    <p class="footer-note">最终解释权归汉考国际所有</p>
+</div></div></div>
 </body>
 </html>
