@@ -15,6 +15,12 @@
         overflow-x: hidden;
     }
 
+    .container {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
     /* Ensure all elements scale proportionally */
     table {
         width: 95%; /* Adjust the table width to fit better within the window */
@@ -36,6 +42,12 @@
     table, th, td {
         border: 1px solid #ddd;
     }
+    table {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
 
     th, td {
         padding: 8px; /* Adjust padding for smaller window sizes */
@@ -44,9 +56,9 @@
     }
 
     .profile-img {
-        width: 180px; /* Make the image fit the width of the column */
-        height: 200px; /* Maintain the aspect ratio */
-        max-width: 200px; /* Set a maximum width to keep it from getting too large */
+        width: 100%; /* Make the image fit the width of the column */
+        height: auto; /* Maintain the aspect ratio */
+        max-width: 180px; /* Set a maximum width to keep it from getting too large */
         border-radius: 5px; /* Optional: Adds rounded corners */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for better visibility */
         display: block; /* Ensures proper centering */
@@ -114,6 +126,9 @@
 
     /* Ensure responsive layout */
     @media screen and (max-width: 768px) {
+        body {
+        font-size: 14px; /* Adjust font size on smaller screens */
+        }
         th, td {
             font-size: 12px;
             padding: 5px;
@@ -129,6 +144,9 @@
     }
 
     @media screen and (max-width: 480px) {
+        body {
+        font-size: 12px; /* Even smaller font for tiny screens */
+    }
         table {
             width: 100%; /* Allow table to fit within smaller screens */
         }
@@ -149,7 +167,8 @@
 <body>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
     </head>
 <div class="well-sm">
     <center>
