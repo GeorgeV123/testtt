@@ -6,7 +6,7 @@
     <title>中文考试成绩在线验证结果查询</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        /* Reset and General Styles */
+        /* General reset */
         html, body {
             margin: 0;
             padding: 0;
@@ -17,20 +17,11 @@
             -webkit-text-size-adjust: 100%;
         }
 
-        /* Body container for general layout */
+        /* Main container */
         .container {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-        }
-
-        /* Ensure the layout scales properly on small screens */
-        table {
-            width: 100%; /* Ensure the table takes up full width */
-            margin: 10px auto; 
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(43, 42, 42, 0.1);
         }
 
         /* Header Container */
@@ -44,18 +35,7 @@
             text-align: center;
         }
 
-        /* Table Styling */
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        /* Profile Image Styling */
+        /* Profile image */
         .profile-img {
             width: 100%;
             height: auto;
@@ -66,50 +46,42 @@
             margin: auto;
         }
 
-        .profile-row {
-            text-align: center;
-            vertical-align: middle;
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px auto;
         }
 
-        h1, h2 {
-            text-align: center;
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .table-heading {
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-            background-color: #f2f2f2;
-            padding: 8px;
-        }
-
-        /* Panel styling */
-        .panel {
+        th, td {
             padding: 10px;
-            margin: auto;
-            max-width: 95%;
+            text-align: left;
+            font-size: 14px;
         }
 
-        /* Media Queries */
-        /* Medium screens (tablets and below) */
+        .table-title {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+
+        .highlight-column {
+            background-color: #f5f5f5;
+        }
+
+        /* Responsive layouts */
         @media screen and (max-width: 768px) {
             body {
                 font-size: 14px;
             }
-
             th, td {
                 font-size: 12px;
                 padding: 8px;
             }
-
             h1, h2 {
                 font-size: 16px;
             }
-
             .profile-img {
-                max-width: 100px; /* Smaller profile image on medium screens */
+                max-width: 120px; /* Smaller profile image on medium screens */
             }
         }
 
@@ -118,50 +90,26 @@
             body {
                 font-size: 12px;
             }
-
             table {
-                width: 100%; /* Table will take full width */
+                width: 100%;
             }
-
             th, td {
-                display: block; /* Stack the table rows */
+                display: block; /* Stack table rows */
                 width: 100%;
                 text-align: left;
+                font-size: 10px; /* Reduce font size */
             }
-
             .profile-img {
-                max-width: 80px; /* Even smaller profile image on small screens */
+                max-width: 70px;
             }
-
             h1, h2 {
                 font-size: 14px;
-            }
-
-            .header-container {
-                width: 100%;
-                padding: 10px;
-            }
-        }
-
-        /* Full width image on mobile */
-        @media screen and (max-width: 320px) {
-            .profile-img {
-                max-width: 60px;
-            }
-
-            h1, h2 {
-                font-size: 12px;
-            }
-
-            th, td {
-                font-size: 10px; /* Smaller font for very small screens */
-                padding: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="well-sm">
+    <div class="container">
         <center>
             <h4>中文考试成绩在线验证结果查询</h4>
             <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
@@ -173,43 +121,43 @@
                 <div class="well-lg">
                     <table>
                         <tr>
-                            <td colspan="3" class="table-title" style="text-align: left;">Information of Test Taker</td>
+                            <td colspan="3" class="table-title">Information of Test Taker</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Name on Certificate</th>
-                            <td class="inside-container-left">SHAJAN EMMANUEL</td>
-                            <td rowspan="4" class="profile-row"><img src="sentil.jpg" alt="Profile Photo" class="profile-img"></td>
+                            <th>Name on Certificate</th>
+                            <td>SHAJAN EMMANUEL</td>
+                            <td rowspan="4" class="profile-img"><img src="sentil.jpg" alt="Profile Photo"></td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Chinese Name</th>
-                            <td class="inside-container-left">以马利</td>
+                            <th>Chinese Name</th>
+                            <td>以马利</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Nationality</th>
-                            <td class="inside-container-left">澳大利亚</td>
+                            <th>Nationality</th>
+                            <td>澳大利亚</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Gender</th>
-                            <td class="inside-container-left">男</td>
+                            <th>Gender</th>
+                            <td>男</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="table-title">Test Information</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Ticket No.</th>
-                            <td colspan="2" class="inside-container-left">H42402899705300010</td>
+                            <th>Ticket No.</th>
+                            <td colspan="2">H42402899705300010</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Test Type</th>
-                            <td colspan="2" class="inside-container-left">HSK四级</td>
+                            <th>Test Type</th>
+                            <td colspan="2">HSK四级</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Test Time</th>
-                            <td colspan="2" class="inside-container-left">Mar 16, 2024</td>
+                            <th>Test Time</th>
+                            <td colspan="2">Mar 16, 2024</td>
                         </tr>
                         <tr>
-                            <th class="inside-container">Test Site</th>
-                            <td colspan="2" class="inside-container-left">丝绸之路国际教育中心</td>
+                            <th>Test Site</th>
+                            <td colspan="2">丝绸之路国际教育中心</td>
                         </tr>
                     </table>
 
@@ -251,7 +199,7 @@
                         </tr>
                     </table>
 
-                    <p class="footer-note">最终解释权归汉考国际所有</p>
+                    <p>最终解释权归汉考国际所有</p>
                 </div>
             </div>
         </div>
