@@ -11,9 +11,7 @@
         padding: 0;
         height: 100%; /* Ensures the page takes up the full height of the window */
         width: 100%; /* Ensures the page takes up the full width of the window */
-        box-sizing: border-box;
         font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
     }
 
     /* Ensure all elements scale proportionally */
@@ -22,8 +20,17 @@
         margin: 10px auto; /* Center the table horizontally */
         border-collapse: collapse;
         background-color: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(43, 42, 42, 0.1);
     }
+    .header-container {
+            border: 2px solid #655c5c; /* Black border around the header */
+            margin: 5px auto; /* Center the header section */
+            padding: 5px; /* Add spacing inside the border */
+            width: 95%; /* Make it responsive */
+            max-width: 1200px; /* Limit the width for larger screens */
+            background-color: #fff; /* Optional: Add a background color */
+            text-align: center; /* Center the text */
+        }
 
     table, th, td {
         border: 1px solid #ddd;
@@ -35,14 +42,6 @@
         font-size: 14px; /* Adjust font size for smaller windows */
     }
 
-    /* .profile-img {
-        width: 100%; /* Allow image to scale within its container */
-        /* height: auto; /* Maintain aspect ratio */
-        /* max-width: 100px; Limit the maximum size */
-        /* border-radius: 5px; Optional: Rounded corners */
-        /* display: block; */
-        /* margin: auto; Center the image */
-    /* } */
     .profile-img {
         width: 180px; /* Make the image fit the width of the column */
         height: 200px; /* Maintain the aspect ratio */
@@ -98,6 +97,19 @@
     .white-row{
         text-align: right;
     }
+    .table-title {
+        text-align: left;
+    }
+    .inside-container{
+        text-align: right;
+        background-color: #f5f5f5; /* Light gray background */
+    }
+    .inside-container-left{
+        text-align: left;
+    }
+    .highlight-column {
+        background-color: #f5f5f5; /* Light gray background */
+    }
 
     /* Ensure responsive layout */
     @media screen and (max-width: 768px) {
@@ -134,62 +146,64 @@
     </style>
 </head>
 <body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="well-sm">
     <center>
         <h4>中文考试成绩在线验证结果查询</h4>
         <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
     </center>
     <!-- Test Taker Information -->
+    <div class="header-container">
      <div class="pannel pannel-default">
         <div class="well-lg">
     <table>
         <tr class="white-row">
-            <td colspan="3" class="table-title">Information of Test Taker</td>
+            <td colspan="3" class="table-title" style="text-align: left;">Information of Test Taker</td>
         </tr>
         <tr>
-            <th class="active text-right">Name on Certificate</th>
-            <td>SHAJAN EMMANUEL</td>
-            <td rowspan="4" width="180px" class="profile-row"><img src="C:\Users\hp\OneDrive\Desktop\rohith\emmamnuuu\senti.jpg" alt="Profile Photo" class="profile-img"></td>
+            <th class="inside-container">Name on Certificate</th>
+            <td class="inside-container-left">SHAJAN EMMANUEL</td>
+            <td rowspan="4" width="180px" class="profile-row"><img src="path" alt="Profile Photo" class="profile-img"></td>
         </tr>
         <tr>
-            <th>Chinese Name</th>
-            <td>以马利</td>
+            <th class="inside-container">Chinese Name</th>
+            <td class="inside-container-left">以马利</td>
         </tr>
         <tr>
-            <th>Nationality</th>
-            <td>澳大利亚</td>
+            <th class="inside-container">Nationality</th>
+            <td class="inside-container-left">澳大利亚</td>
         </tr>
         <tr>
-            <th>Gender</th>
-            <td>男</td>
+            <th class="inside-container">Gender</th>
+            <td class="inside-container-left">男</td>
         </tr>
         <tr>
-            <td colspan="3" class="table-title">Test Information</td>
+            <td colspan="3" class="table-title" >Test Information</td>
         </tr>
         <tr>
-            <th>Ticket No.</th>
-            <td colspan="2">H42402899705300010</td>
+            <th class="inside-container">Ticket No.</th>
+            <td colspan="2" class="inside-container-left">H42402899705300010</td>
         </tr>
         <tr>
-            <th>Test Type</th>
-            <td colspan="2">HSK四级</td>
+            <th class="inside-container">Test Type</th>
+            <td colspan="2" class="inside-container-left">HSK四级</td>
         </tr>
         <tr>
-            <th>Test Time</th>
-            <td colspan="2">Mar 16, 2024</td>
+            <th class="inside-container">Test Time</th>
+            <td colspan="2" class="inside-container-left">Mar 16, 2024</td>
         </tr>
         <tr>
-            <th>Test Site</th>
-            <td colspan="2">丝绸之路国际教育中心</td>
+            <th class="inside-container">Test Site</th>
+            <td colspan="2" class="inside-container-left">丝绸之路国际教育中心</td>
         </tr>
     </table>
 
     <!-- HSK Results -->
     <table>
         <tr>
-            <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
+            <td colspan="5" class="table-title" >HSK Results (Mar 16, 2024)</td>
         </tr>
-        <tr>
+        <tr class="highlight-column">
             <th>听力 (Listening)</th>
             <th>阅读 (Reading)</th>
             <th>写作 (Writing)</th>
@@ -208,9 +222,9 @@
     <!-- HSKK Results -->
     <table>
         <tr>
-            <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
+            <td colspan="3" class="table-title" >HSKK Results (Mar 16, 2024)</td>
         </tr>
-        <tr>
+        <tr class="highlight-column">
             <th>口试 (Speaking)</th>
             <th>Total Score</th>
             <th>Status</th>
@@ -223,6 +237,6 @@
     </table>
 
     <p class="footer-note">最终解释权归汉考国际所有</p>
-</div></div></div>
+</div></div></div></div>
 </body>
 </html>
