@@ -77,9 +77,17 @@
             border: 1px solid #ddd;
         }
 
-        /* Responsive adjustments */
+        /* Mobile-first layout */
         @media screen and (max-width: 768px) {
-            th, td {
+            .container {
+                padding: 10px;
+            }
+
+            .header-container h4, .header-container h2 {
+                font-size: 18px;
+            }
+
+            table th, table td {
                 font-size: 12px;
                 padding: 8px;
             }
@@ -87,6 +95,42 @@
             .profile-img {
                 width: 100px;
                 height: 100px;
+            }
+
+            /* Stack profile details vertically on mobile */
+            .profile-container table td {
+                display: block;
+                padding: 10px 0;
+            }
+
+            /* Align image to top-right */
+            .profile-container img {
+                display: block;
+                margin: 10px auto;
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Desktop layout */
+        @media screen and (min-width: 769px) {
+            .profile-container table td {
+                padding: 10px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-container table {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .profile-container table td {
+                width: 50%;
             }
         }
     </style>
@@ -103,10 +147,9 @@
     <div class="profile-container">
         <table>
             <tr>
-                
                 <td><strong>Name on Certificate</strong></td>
                 <td>SHAJAN EMMANUEL</td>
-                <td rowspan="4" style="text-align:center;">
+                <td rowspan="4" style="text-align:center; padding-left: 20px;">
                     <img src="profile-image.jpg" alt="Profile Photo" class="profile-img">
                 </td>
             </tr>
@@ -122,11 +165,11 @@
                 <td><strong>Gender</strong></td>
                 <td>男</td>
             </tr>
-        <!-- </table> -->
+        </table>
     </div>
 
     <!-- Test Information -->
-    <!-- <table> -->
+    <table>
         <tr>
             <td colspan="3" class="table-title">Information of Test Taker</td>
         </tr>
