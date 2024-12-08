@@ -6,48 +6,14 @@
     <title>中文考试成绩在线验证结果查询</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
+        body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
 
-        /* General table styling */
-        table {
-            width: 95%;
-            margin: 15px auto;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        /* Profile image styling */
-        .profile-img {
-            width: 180px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-row {
-            text-align: center;
-        }
-
-        /* Header container styling */
+        /* Header Styling */
         .header-container {
             border: 2px solid #655c5c;
             margin: 10px auto;
@@ -64,86 +30,103 @@
             font-weight: bold;
         }
 
-        /* Styling for table headings */
-        .table-title {
-            font-weight: bold;
-            background-color: #f2f2f2;
-            padding: 10px;
-            text-align: left;
+        /* Flexbox-based Card for Info */
+        .info-card {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+            margin: 10px auto;
+            padding: 15px;
+            width: 95%;
+            max-width: 1200px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .highlight-column {
-            background-color: #f5f5f5;
-        }
-
-        .footer-note {
+        .info-card .image-container {
+            flex: 1 1 30%;
             text-align: center;
-            font-size: 12px;
-            color: #555;
+            margin: 10px 0;
         }
 
-        /* Inside container styling */
-        .inside-container {
-            text-align: right;
-            background-color: #f5f5f5;
+        .info-card .text-container {
+            flex: 1 1 70%;
+            margin: 10px;
         }
 
-        .inside-container-left {
-            text-align: left;
+        .profile-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsive adjustments */
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .info-item span {
+            display: inline-block;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        /* Responsive Tables */
+        .responsive-table {
+            width: 95%;
+            margin: 15px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .responsive-table th, .responsive-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .responsive-table th {
+            background-color: #f2f2f2;
+        }
+
+        /* Mobile Responsive */
         @media screen and (max-width: 768px) {
-            th, td {
+            .info-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info-card .text-container {
+                margin: 0;
+            }
+
+            .info-card .image-container {
+                margin-bottom: 15px;
+            }
+
+            .responsive-table th, .responsive-table td {
                 font-size: 12px;
-                padding: 8px;
-            }
-
-            .profile-img {
-                width: 120px;
-                height: 150px;
-            }
-
-            table {
-                width: 100%;
-            }
-
-            /* Adjust .inside-container classes */
-            .inside-container,
-            .inside-container-left {
-                text-align: left !important; /* Override for small screens */
                 padding: 8px;
             }
         }
 
         @media screen and (max-width: 480px) {
-            table {
-                display: block; /* Mobile-friendly table */
+            .responsive-table {
+                display: block;
                 overflow-x: auto;
             }
 
-            th, td {
-                display: block; /* Stack table cells vertically */
-                width: 100%;
+            .responsive-table th, .responsive-table td {
                 text-align: left;
-                padding: 6px;
-            }
-
-            .profile-img {
-                width: 100px;
-                height: 120px;
-            }
-
-            .inside-container,
-            .inside-container-left {
-                text-align: left !important; /* Ensure text aligns left */
-                padding: 6px;
-            }
-
-            /* Table headers styling for better clarity */
-            th {
-                font-weight: bold;
-                background-color: #f2f2f2;
+                display: block;
+                width: 100%;
             }
         }
     </style>
@@ -155,89 +138,69 @@
 </div>
 
 <!-- Test Taker Information -->
-<div class="panel">
-    <table>
-        <tr>
-            <td colspan="3" class="table-title">Information of Test Taker</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Name on Certificate</th>
-            <td class="inside-container-left">SHAJAN EMMANUEL</td>
-            <td rowspan="4" class="profile-row">
-                <img src="path/to/image.jpg" alt="Profile Photo" class="profile-img">
-            </td>
-        </tr>
-        <tr>
-            <th class="inside-container">Chinese Name</th>
-            <td class="inside-container-left">以马利</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Nationality</th>
-            <td class="inside-container-left">澳大利亚</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Gender</th>
-            <td class="inside-container-left">男</td>
-        </tr>
-        <tr>
-            <td colspan="3" class="table-title">Test Information</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Ticket No.</th>
-            <td colspan="2" class="inside-container-left">H42402899705300010</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Test Type</th>
-            <td colspan="2" class="inside-container-left">HSK四级</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Test Time</th>
-            <td colspan="2" class="inside-container-left">Mar 16, 2024</td>
-        </tr>
-        <tr>
-            <th class="inside-container">Test Site</th>
-            <td colspan="2" class="inside-container-left">丝绸之路国际教育中心</td>
-        </tr>
-    </table>
-
-    <!-- HSK Results -->
-    <table>
-        <tr>
-            <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
-        </tr>
-        <tr class="highlight-column">
-            <th>听力 (Listening)</th>
-            <th>阅读 (Reading)</th>
-            <th>写作 (Writing)</th>
-            <th>Total Score</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>56</td>
-            <td>94</td>
-            <td>80</td>
-            <td>230</td>
-            <td>合格</td>
-        </tr>
-    </table>
-
-    <!-- HSKK Results -->
-    <table>
-        <tr>
-            <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
-        </tr>
-        <tr class="highlight-column">
-            <th>口试 (Speaking)</th>
-            <th>Total Score</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>42</td>
-            <td>42</td>
-            <td>不合格</td>
-        </tr>
-    </table>
+<div class="info-card">
+    <div class="image-container">
+        <img src="path/to/image.jpg" alt="Profile Photo" class="profile-img">
+    </div>
+    <div class="text-container">
+        <div class="info-item">
+            <span class="highlight">Name on Certificate:</span>
+            <span>SHAJAN EMMANUEL</span>
+        </div>
+        <div class="info-item">
+            <span class="highlight">Chinese Name:</span>
+            <span>以马利</span>
+        </div>
+        <div class="info-item">
+            <span class="highlight">Nationality:</span>
+            <span>澳大利亚</span>
+        </div>
+        <div class="info-item">
+            <span class="highlight">Gender:</span>
+            <span>男</span>
+        </div>
+    </div>
 </div>
+
+<!-- HSK Results -->
+<table class="responsive-table">
+    <thead>
+    <tr>
+        <th>听力 (Listening)</th>
+        <th>阅读 (Reading)</th>
+        <th>写作 (Writing)</th>
+        <th>Total Score</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>56</td>
+        <td>94</td>
+        <td>80</td>
+        <td>230</td>
+        <td>合格</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- HSKK Results -->
+<table class="responsive-table">
+    <thead>
+    <tr>
+        <th>口试 (Speaking)</th>
+        <th>Total Score</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>42</td>
+        <td>42</td>
+        <td>不合格</td>
+    </tr>
+    </tbody>
+</table>
 
 <p class="footer-note">最终解释权归汉考国际所有</p>
 </body>
