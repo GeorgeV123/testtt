@@ -6,19 +6,60 @@
     <title>中文考试成绩在线验证结果查询</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        html, body {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            font-family: Arial, sans-serif;
             background-color: #f9f9f9;
         }
 
-        /* General table styling */
+        /* Header styling */
+        .header-container {
+            border: 2px solid #655c5c;
+            margin: 10px auto;
+            padding: 15px;
+            width: 90%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        h4, h2 {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        /* Profile image and text container */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-text {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .profile-img-container {
+            text-align: center;
+            flex-basis: 150px;
+            margin-left: 15px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table styling */
         table {
             width: 100%;
-            margin: 15px auto;
+            margin: 10px auto;
             border-collapse: collapse;
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -34,103 +75,36 @@
             font-size: 14px;
         }
 
-        /* Profile image styling */
-        .profile-img {
-            width: 100%;
-            max-width: 180px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-row {
-            text-align: center;
-        }
-
-        /* Header container styling */
-        .header-container {
-            border: 2px solid #655c5c;
-            margin: 10px auto;
-            padding: 15px;
-            width: 95%;
-            max-width: 1200px;
-            background-color: #fff;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h4, h2 {
-            margin: 5px 0;
-            font-weight: bold;
-        }
-
-        /* Styling for table headings */
         .table-title {
-            font-weight: bold;
             background-color: #f2f2f2;
-            padding: 10px;
-            text-align: left;
+            font-weight: bold;
         }
 
         .highlight-column {
             background-color: #f5f5f5;
         }
 
+        /* Footer note */
         .footer-note {
             text-align: center;
             font-size: 12px;
             color: #555;
-        }
-
-        /* Inside container styling */
-        .inside-container {
-            text-align: right;
-            background-color: #f5f5f5;
-        }
-
-        .inside-container-left {
-            text-align: left;
-        }
-
-        /* Flexbox container for profile image and text */
-        .profile-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .profile-text {
-            flex: 1;
-            padding: 10px;
-        }
-
-        .profile-img-container {
-            flex-basis: 200px;
-            margin-left: 15px;
-            text-align: center;
+            margin-top: 20px;
         }
 
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
+            /* Table and text size adjustments */
             th, td {
                 font-size: 12px;
                 padding: 8px;
             }
 
             .profile-img {
-                width: 120px;
-                height: 150px;
+                width: 100px;
+                height: 120px;
             }
 
-            .inside-container,
-            .inside-container-left {
-                text-align: left;
-                padding: 8px;
-            }
-
-            /* Flex container for profile image and text */
             .profile-container {
                 flex-direction: column;
                 align-items: center;
@@ -138,10 +112,16 @@
 
             .profile-img-container {
                 margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .profile-text {
+                text-align: center;
             }
         }
 
         @media screen and (max-width: 480px) {
+            /* Mobile-specific table layout */
             table {
                 width: 100%;
             }
@@ -154,30 +134,25 @@
             }
 
             .profile-img {
-                width: 100px;
-                height: 120px;
+                width: 80px;
+                height: 100px;
             }
 
-            .inside-container,
-            .inside-container-left {
-                text-align: left;
-                padding: 6px;
-            }
-
+            /* Align everything to the center */
             .profile-container {
                 flex-direction: column;
                 align-items: center;
             }
 
-            /* Adjust table layout for mobile view */
-            .table-title {
-                padding: 8px;
+            .profile-text {
                 text-align: center;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
+
 <div class="header-container">
     <h4>中文考试成绩在线验证结果查询</h4>
     <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
@@ -208,20 +183,20 @@
             <td colspan="3" class="table-title">Test Information</td>
         </tr>
         <tr>
-            <th class="inside-container">Ticket No.</th>
-            <td colspan="2" class="inside-container-left">H42402899705300010</td>
+            <th>Ticket No.</th>
+            <td colspan="2">H42402899705300010</td>
         </tr>
         <tr>
-            <th class="inside-container">Test Type</th>
-            <td colspan="2" class="inside-container-left">HSK四级</td>
+            <th>Test Type</th>
+            <td colspan="2">HSK四级</td>
         </tr>
         <tr>
-            <th class="inside-container">Test Time</th>
-            <td colspan="2" class="inside-container-left">Mar 16, 2024</td>
+            <th>Test Time</th>
+            <td colspan="2">Mar 16, 2024</td>
         </tr>
         <tr>
-            <th class="inside-container">Test Site</th>
-            <td colspan="2" class="inside-container-left">丝绸之路国际教育中心</td>
+            <th>Test Site</th>
+            <td colspan="2">丝绸之路国际教育中心</td>
         </tr>
     </table>
 
@@ -265,5 +240,6 @@
 </div>
 
 <p class="footer-note">最终解释权归汉考国际所有</p>
+
 </body>
 </html>
