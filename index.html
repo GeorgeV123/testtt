@@ -13,39 +13,43 @@
             background-color: #f9f9f9;
         }
 
-        /* Header styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .header-container {
-            border: 2px solid #655c5c;
-            margin: 10px auto;
-            padding: 15px;
-            width: 90%;
-            background-color: #fff;
             text-align: center;
+            margin: 20px 0;
         }
 
         h4, h2 {
-            margin: 5px 0;
+            margin: 0;
             font-weight: bold;
         }
 
-        /* Profile image and text container */
         .profile-container {
             display: flex;
-            align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
             flex-wrap: wrap;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .profile-text {
             flex: 1;
             padding: 10px;
+            text-align: left;
         }
 
         .profile-img-container {
             text-align: center;
-            flex-basis: 150px;
-            margin-left: 15px;
+            flex: 1;
+            margin-left: 10px;
         }
 
         .profile-img {
@@ -53,16 +57,15 @@
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Table styling */
         table {
             width: 100%;
-            margin: 10px auto;
+            margin-bottom: 20px;
             border-collapse: collapse;
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         table, th, td {
@@ -81,10 +84,9 @@
         }
 
         .highlight-column {
-            background-color: #f5f5f5;
+            background-color: #f9f9f9;
         }
 
-        /* Footer note */
         .footer-note {
             text-align: center;
             font-size: 12px;
@@ -94,20 +96,15 @@
 
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
-            /* Table and text size adjustments */
-            th, td {
-                font-size: 12px;
-                padding: 8px;
+            /* Adjust profile container for smaller screens */
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
             }
 
             .profile-img {
                 width: 100px;
                 height: 120px;
-            }
-
-            .profile-container {
-                flex-direction: column;
-                align-items: center;
             }
 
             .profile-img-container {
@@ -117,70 +114,65 @@
 
             .profile-text {
                 text-align: center;
+                padding: 0 15px;
+            }
+
+            th, td {
+                font-size: 12px;
+                padding: 8px;
             }
         }
 
         @media screen and (max-width: 480px) {
             /* Mobile-specific table layout */
-            table {
-                width: 100%;
-            }
-
-            th, td {
+            table, th, td {
                 display: block;
                 width: 100%;
                 text-align: left;
                 padding: 6px;
             }
 
-            .profile-img {
-                width: 80px;
-                height: 100px;
+            th, td {
+                display: block;
+                width: 100%;
+                padding: 6px;
             }
 
-            /* Align everything to the center */
-            .profile-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .profile-text {
+            .table-title {
                 text-align: center;
-                padding: 10px;
+            }
+
+            .footer-note {
+                font-size: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="header-container">
-    <h4>中文考试成绩在线验证结果查询</h4>
-    <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
-</div>
+<div class="container">
+    <div class="header-container">
+        <h4>中文考试成绩在线验证结果查询</h4>
+        <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
+    </div>
 
-<!-- Test Taker Information -->
-<div class="panel">
+    <!-- Profile Information -->
+    <div class="profile-container">
+        <div class="profile-text">
+            <p><strong>Name on Certificate:</strong> SHAJAN EMMANUEL</p>
+            <p><strong>Chinese Name:</strong> 以马利</p>
+            <p><strong>Nationality:</strong> 澳大利亚</p>
+            <p><strong>Gender:</strong> 男</p>
+        </div>
+        <div class="profile-img-container">
+            <img src="senti.jpg" alt="Profile Photo" class="profile-img">
+        </div>
+    </div>
+
+    <!-- Test Information -->
     <table>
         <tr>
             <td colspan="3" class="table-title">Information of Test Taker</td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <div class="profile-container">
-                    <div class="profile-text">
-                        <p><strong>Name on Certificate:</strong> SHAJAN EMMANUEL</p>
-                        <p><strong>Chinese Name:</strong> 以马利</p>
-                        <p><strong>Nationality:</strong> 澳大利亚</p>
-                        <p><strong>Gender:</strong> 男</p>
-                    </div>
-                    <div class="profile-img-container">
-                        <img src="senti.jpg" alt="Profile Photo" class="profile-img">
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" class="table-title">Test Information</td>
         </tr>
         <tr>
             <th>Ticket No.</th>
@@ -237,9 +229,9 @@
             <td>不合格</td>
         </tr>
     </table>
-</div>
 
-<p class="footer-note">最终解释权归汉考国际所有</p>
+    <p class="footer-note">最终解释权归汉考国际所有</p>
+</div>
 
 </body>
 </html>
