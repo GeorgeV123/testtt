@@ -1,18 +1,199 @@
-@media screen and (max-width: 768px) {
-    /* Disable mobile stacking */
-    .profile-container table {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, initial-scale=1.0"> <!-- Forces 1200px wide view on mobile as well -->
+    <title>中文考试成绩在线验证结果查询</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
 
-    .profile-container table td {
-        width: 50%;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-}
+        .header-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h4, h2 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .profile-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .table-title {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        /* Disable mobile layout styles */
+        @media screen and (max-width: 768px) {
+            /* Avoid mobile stacking */
+            .profile-container table {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .profile-container table td {
+                width: 50%;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-container">
+        <h4>中文考试成绩在线验证结果查询</h4>
+        <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
+    </div>
+
+    <!-- Profile Information in a Table -->
+    <div class="profile-container">
+        <table>
+            <tr>
+                <td><strong>Name on Certificate</strong></td>
+                <td>SHAJAN EMMANUEL</td>
+                <td rowspan="4" style="text-align:center; padding-left: 20px;">
+                    <img src="profile-image.jpg" alt="Profile Photo" class="profile-img">
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Chinese Name</strong></td>
+                <td>以马利</td>
+            </tr>
+            <tr>
+                <td><strong>Nationality</strong></td>
+                <td>澳大利亚</td>
+            </tr>
+            <tr>
+                <td><strong>Gender</strong></td>
+                <td>男</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Test Information -->
+    <table>
+        <tr>
+            <td colspan="3" class="table-title">Information of Test Taker</td>
+        </tr>
+        <tr>
+            <th>Ticket No.</th>
+            <td colspan="2">H42402899705300010</td>
+        </tr>
+        <tr>
+            <th>Test Type</th>
+            <td colspan="2">HSK四级</td>
+        </tr>
+        <tr>
+            <th>Test Time</th>
+            <td colspan="2">Mar 16, 2024</td>
+        </tr>
+        <tr>
+            <th>Test Site</th>
+            <td colspan="2">丝绸之路国际教育中心</td>
+        </tr>
+    </table>
+
+    <!-- HSK Results -->
+    <table>
+        <tr>
+            <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
+        </tr>
+        <tr>
+            <th>听力 (Listening)</th>
+            <th>阅读 (Reading)</th>
+            <th>写作 (Writing)</th>
+            <th>Total Score</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>56</td>
+            <td>94</td>
+            <td>80</td>
+            <td>230</td>
+            <td>合格</td>
+        </tr>
+    </table>
+
+    <!-- HSKK Results -->
+    <table>
+        <tr>
+            <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
+        </tr>
+        <tr>
+            <th>口试 (Speaking)</th>
+            <th>Total Score</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>42</td>
+            <td>42</td>
+            <td>不合格</td>
+        </tr>
+    </table>
+
+    <p class="footer-note">最终解释权归汉考国际所有</p>
+</div>
+
+</body>
+</html>
