@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中文考试成绩在线验证结果查询</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
@@ -13,7 +13,6 @@
             height: 100%;
             width: 100%;
             font-family: Arial, sans-serif;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         /* Container for the whole content */
@@ -29,28 +28,24 @@
             margin: 5px auto;
             padding: 5px;
             width: 100%;
-            max-width: 1200px; /* Prevent excessive width */
+            max-width: 1200px;
             background-color: #fff;
-            text-align: center;
         }
 
-        /* Profile image */
-        .profile-img {
-    width: 100%; /* Make the image responsive and scale with the container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 180px; /* Limit the maximum width */
-    border-radius: 5px; /* Optional: Adds rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for better visibility */
-    display: block; /* Ensures proper centering */
-    margin: auto; /* Centers the image horizontally in the column */
-}
-
+        /* Profile image styling */
+        .profile-img img {
+            width: 100%; /* Image adapts to container */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 150px; /* Restrict maximum width */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
         /* Table styling */
         table {
-            width: 100%; /* Ensure the table takes up 100% of the container */
+            width: 100%;
             border-collapse: collapse;
-            margin: 10px auto;
+            margin: 10px 0;
         }
 
         th, td {
@@ -62,10 +57,17 @@
         .table-title {
             font-weight: bold;
             background-color: #f2f2f2;
+            text-align: center;
         }
 
         .highlight-column {
             background-color: #f5f5f5;
+        }
+
+        /* Add horizontal scrolling for small screens */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         /* Responsive layout for medium screens */
@@ -73,15 +75,14 @@
             body {
                 font-size: 14px;
             }
+
             th, td {
                 font-size: 12px;
                 padding: 8px;
             }
-            h1, h2 {
-                font-size: 16px;
-            }
-            .profile-img {
-                max-width: 120px; /* Smaller profile image on medium screens */
+
+            .profile-img img {
+                max-width: 100px; /* Smaller profile image on medium screens */
             }
         }
 
@@ -90,20 +91,21 @@
             body {
                 font-size: 12px;
             }
+
+            .header-container {
+                padding: 10px;
+            }
+
             table {
-                width: 100%; /* Allow table to fit within smaller screens */
+                font-size: 10px;
             }
-            th, td {
-                display: block; /* Stack table rows */
-                width: 100%;
-                text-align: left;
-                font-size: 10px; /* Reduce font size */
+
+            .profile-img img {
+                max-width: 80px; /* Smaller profile image for small screens */
             }
-            .profile-img {
-                max-width: 70px;
-            }
-            h1, h2 {
-                font-size: 14px;
+
+            h1, h2, h4 {
+                font-size: 16px; /* Smaller headings */
             }
         }
     </style>
@@ -162,42 +164,46 @@
                     </table>
 
                     <!-- HSK Results -->
-                    <table>
-                        <tr>
-                            <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
-                        </tr>
-                        <tr class="highlight-column">
-                            <th>听力 (Listening)</th>
-                            <th>阅读 (Reading)</th>
-                            <th>写作 (Writing)</th>
-                            <th>Total Score</th>
-                            <th>Status</th>
-                        </tr>
-                        <tr>
-                            <td>56</td>
-                            <td>94</td>
-                            <td>80</td>
-                            <td>230</td>
-                            <td>合格</td>
-                        </tr>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
+                            </tr>
+                            <tr class="highlight-column">
+                                <th>听力 (Listening)</th>
+                                <th>阅读 (Reading)</th>
+                                <th>写作 (Writing)</th>
+                                <th>Total Score</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>56</td>
+                                <td>94</td>
+                                <td>80</td>
+                                <td>230</td>
+                                <td>合格</td>
+                            </tr>
+                        </table>
+                    </div>
 
                     <!-- HSKK Results -->
-                    <table>
-                        <tr>
-                            <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
-                        </tr>
-                        <tr class="highlight-column">
-                            <th>口试 (Speaking)</th>
-                            <th>Total Score</th>
-                            <th>Status</th>
-                        </tr>
-                        <tr>
-                            <td>42</td>
-                            <td>42</td>
-                            <td>不合格</td>
-                        </tr>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
+                            </tr>
+                            <tr class="highlight-column">
+                                <th>口试 (Speaking)</th>
+                                <th>Total Score</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>42</td>
+                                <td>42</td>
+                                <td>不合格</td>
+                            </tr>
+                        </table>
+                    </div>
 
                     <p>最终解释权归汉考国际所有</p>
                 </div>
