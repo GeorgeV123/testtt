@@ -104,20 +104,26 @@
                 height: 150px;
             }
 
+            table {
+                width: 100%;
+            }
+
+            /* Adjust .inside-container classes */
             .inside-container,
             .inside-container-left {
-                text-align: left;
+                text-align: left !important; /* Override for small screens */
                 padding: 8px;
             }
         }
 
         @media screen and (max-width: 480px) {
             table {
-                width: 100%;
+                display: block; /* Mobile-friendly table */
+                overflow-x: auto;
             }
 
             th, td {
-                display: block;
+                display: block; /* Stack table cells vertically */
                 width: 100%;
                 text-align: left;
                 padding: 6px;
@@ -130,8 +136,14 @@
 
             .inside-container,
             .inside-container-left {
-                text-align: left;
+                text-align: left !important; /* Ensure text aligns left */
                 padding: 6px;
+            }
+
+            /* Table headers styling for better clarity */
+            th {
+                font-weight: bold;
+                background-color: #f2f2f2;
             }
         }
     </style>
