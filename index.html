@@ -91,16 +91,53 @@
             margin-top: 20px;
         }
 
+        /* Profile Image and Information in One Row */
+        .profile-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-row .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .profile-row .profile-details {
+            flex: 1;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .profile-row .profile-details div {
+            font-weight: bold;
+        }
+
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
-            .profile-container {
+            .profile-row {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .profile-img {
+            .profile-row .profile-img {
                 width: 100px;
-                height: 120px;
+                height: 100px;
+            }
+
+            .profile-row .profile-details {
+                grid-template-columns: 1fr;
+                padding: 10px;
             }
 
             th, td {
@@ -119,29 +156,18 @@
     </div>
 
     <!-- Profile Information -->
-    <div class="profile-container">
-        <table>
-            <tr class="table-row">
-                <td colspan="2">
-                    <img src="profile-image.jpg" alt="Profile Photo" class="profile-image">
-                </td>
-                <td><strong>Name on Certificate</strong></td>
-                <td>SHAJAN EMMANUEL</td>
-            </tr>
-            <tr>
-                <td><strong>Chinese Name</strong></td>
-                <td>以马利</td>
-            </tr>
-            <tr>
-                <td><strong>Nationality</strong></td>
-                <td>澳大利亚</td>
-            </tr>
-            <tr>
-                <td><strong>Gender</strong></td>
-                <td>男</td>
-            </tr>
-        </table>
-       
+    <div class="profile-row">
+        <img src="profile-image.jpg" alt="Profile Photo" class="profile-img">
+        <div class="profile-details">
+            <div><strong>Name on Certificate</strong></div>
+            <div>SHAJAN EMMANUEL</div>
+            <div><strong>Chinese Name</strong></div>
+            <div>以马利</div>
+            <div><strong>Nationality</strong></div>
+            <div>澳大利亚</div>
+            <div><strong>Gender</strong></div>
+            <div>男</div>
+        </div>
     </div>
 
     <!-- Test Information -->
