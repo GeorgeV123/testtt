@@ -34,7 +34,7 @@
             font-size: 14px;
         }
 
-        /* Responsive image styling */
+        /* Profile image styling */
         .profile-img {
             width: 180px;
             height: 200px;
@@ -81,11 +81,14 @@
             font-size: 12px;
             color: #555;
         }
-        .inside-container{
+
+        /* Inside container styling */
+        .inside-container {
             text-align: right;
-            background-color: #f5f5f5; /* Light gray background */
+            background-color: #f5f5f5;
         }
-        .inside-container-left{
+
+        .inside-container-left {
             text-align: left;
         }
 
@@ -100,6 +103,12 @@
                 width: 120px;
                 height: 150px;
             }
+
+            .inside-container,
+            .inside-container-left {
+                text-align: left;
+                padding: 8px;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -111,11 +120,18 @@
                 display: block;
                 width: 100%;
                 text-align: left;
+                padding: 6px;
             }
 
             .profile-img {
                 width: 100px;
                 height: 120px;
+            }
+
+            .inside-container,
+            .inside-container-left {
+                text-align: left;
+                padding: 6px;
             }
         }
     </style>
@@ -134,41 +150,41 @@
         </tr>
         <tr>
             <th class="inside-container">Name on Certificate</th>
-            <td>SHAJAN EMMANUEL</td>
+            <td class="inside-container-left">SHAJAN EMMANUEL</td>
             <td rowspan="4" class="profile-row">
                 <img src="path/to/image.jpg" alt="Profile Photo" class="profile-img">
             </td>
         </tr>
         <tr>
             <th class="inside-container">Chinese Name</th>
-            <td>以马利</td>
+            <td class="inside-container-left">以马利</td>
         </tr>
         <tr>
             <th class="inside-container">Nationality</th>
-            <td>澳大利亚</td>
+            <td class="inside-container-left">澳大利亚</td>
         </tr>
         <tr>
             <th class="inside-container">Gender</th>
-            <td>男</td>
+            <td class="inside-container-left">男</td>
         </tr>
         <tr>
             <td colspan="3" class="table-title">Test Information</td>
         </tr>
         <tr>
             <th class="inside-container">Ticket No.</th>
-            <td colspan="2">H42402899705300010</td>
+            <td colspan="2" class="inside-container-left">H42402899705300010</td>
         </tr>
         <tr>
             <th class="inside-container">Test Type</th>
-            <td colspan="2">HSK四级</td>
+            <td colspan="2" class="inside-container-left">HSK四级</td>
         </tr>
         <tr>
             <th class="inside-container">Test Time</th>
-            <td colspan="2">Mar 16, 2024</td>
+            <td colspan="2" class="inside-container-left">Mar 16, 2024</td>
         </tr>
         <tr>
             <th class="inside-container">Test Site</th>
-            <td colspan="2">丝绸之路国际教育中心</td>
+            <td colspan="2" class="inside-container-left">丝绸之路国际教育中心</td>
         </tr>
     </table>
 
