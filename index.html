@@ -17,7 +17,7 @@
 
         /* General table styling */
         .table-container {
-            overflow-x: auto;
+            overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
             margin: 15px auto;
             width: 95%;
         }
@@ -118,17 +118,19 @@
 
         @media screen and (max-width: 480px) {
             .table-container {
-                overflow-x: auto;
+                overflow-x: auto; /* Enable scrolling for mobile screens */
             }
 
             table {
                 width: 100%;
+                table-layout: fixed; /* Prevent table from overflowing */
             }
 
             th, td {
                 display: block;
                 text-align: left;
                 padding: 6px;
+                word-wrap: break-word; /* Ensure text doesn't overflow */
             }
 
             .profile-img {
