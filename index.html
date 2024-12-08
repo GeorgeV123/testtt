@@ -31,9 +31,10 @@
 
         .profile-container {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
             flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
             padding: 10px;
             background-color: white;
             border-radius: 8px;
@@ -48,8 +49,7 @@
 
         .profile-img-container {
             text-align: center;
-            flex: 1;
-            margin-left: 10px;
+            margin: 10px;
         }
 
         .profile-img {
@@ -57,6 +57,7 @@
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
+            border: 1px solid #ddd;
         }
 
         table {
@@ -83,10 +84,6 @@
             font-weight: bold;
         }
 
-        .highlight-column {
-            background-color: #f9f9f9;
-        }
-
         .footer-note {
             text-align: center;
             font-size: 12px;
@@ -96,7 +93,6 @@
 
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
-            /* Adjust profile container for smaller screens */
             .profile-container {
                 flex-direction: column;
                 align-items: center;
@@ -107,43 +103,9 @@
                 height: 120px;
             }
 
-            .profile-img-container {
-                margin-left: 0;
-                margin-bottom: 10px;
-            }
-
-            .profile-text {
-                text-align: center;
-                padding: 0 15px;
-            }
-
             th, td {
                 font-size: 12px;
                 padding: 8px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            /* Mobile-specific table layout */
-            table, th, td {
-                display: block;
-                width: 100%;
-                text-align: left;
-                padding: 6px;
-            }
-
-            th, td {
-                display: block;
-                width: 100%;
-                padding: 6px;
-            }
-
-            .table-title {
-                text-align: center;
-            }
-
-            .footer-note {
-                font-size: 10px;
             }
         }
     </style>
@@ -197,7 +159,7 @@
         <tr>
             <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
         </tr>
-        <tr class="highlight-column">
+        <tr>
             <th>听力 (Listening)</th>
             <th>阅读 (Reading)</th>
             <th>写作 (Writing)</th>
@@ -218,7 +180,7 @@
         <tr>
             <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
         </tr>
-        <tr class="highlight-column">
+        <tr>
             <th>口试 (Speaking)</th>
             <th>Total Score</th>
             <th>Status</th>
