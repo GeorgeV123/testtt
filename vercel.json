@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/queryScoredosid=c",
+      "source": "/queryScoredosidc",
       "destination": "/index2.html"
     }
   ]
