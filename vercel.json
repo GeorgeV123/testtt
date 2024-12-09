@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/anotherpage",
+      "destination": "/index2.html"
+    }
+  ]
+}
