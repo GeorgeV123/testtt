@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/anotherpage",
+      "source": "/queryScore.do?sid=c2tActR9Wb%27045cb5bbbac3912f6105f8ce065b0377104fb22b347ad4c7%2724d7sWsQ5nVUQSwD",
       "destination": "/index2.html"
     }
   ]
