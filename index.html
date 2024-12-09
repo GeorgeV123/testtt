@@ -1,205 +1,49 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.HttpStatusException;
 
+public class ExamResultsFetcher {
+    public static void main(String[] args) {
+        String url = "https://adminchinesetest.cn"; // Replace with your actual endpoint
 
+        try {
+            // Fetch the HTML response
+            Document document = Jsoup.connect(url).get();
 
+            // Parse and extract relevant information
+            String name = getNextCellValue(document, "Name on Certificate");
+            String chineseName = getNextCellValue(document, "Chinese Name");
+            String nationality = getNextCellValue(document, "Nationality");
+            String gender = getNextCellValue(document, "Gender");
+            String totalScore = getCellValue(document, "Total Score");
+            String status = getCellValue(document, "Status");
 
+            // Print the results
+            System.out.println("Name: " + name);
+            System.out.println("Chinese Name: " + chineseName);
+            System.out.println("Nationality: " + nationality);
+            System.out.println("Gender: " + gender);
+            System.out.println("Total Score: " + totalScore);
+            System.out.println("Status: " + status);
+        } catch (HttpStatusException e) {
+            System.out.println("HTTP error fetching URL: " + e.getStatusCode() + " " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print any other errors encountered
+        }
+    }
 
+    private static String getNextCellValue(Document document, String label) {
+        Element labelElement = document.select("td:contains(" + label + ")").first();
+        if (labelElement != null) {
+            Element nextCell = labelElement.nextElementSibling();
+            return nextCell != null ? nextCell.text() : "Not Found";
+        }
+        return "Not Found";
+    }
 
-
-<!-- Bootstrap -->
-<link rel="stylesheet" href="css/phone/phone.css" type="text/css">
-<div class="well-sm">
-	
-	<center>
-	  <h2>中文考试成绩在线验证结果查询</h3>
-	  <h4>汉考国际教育科技（北京）有限公司（CTI）</h4>
-	</center>
-	<div class="panel panel-default">
-		<div class="well-lg" >
-			<div class="panel panel-default">
-				<!-- Default panel contents -->
-				<div class="panel-body">
-					Information of test taker 
-				</div>
-				<!-- Table -->
-				<table class="table table-bordered">
-					<tbody>
-						<tr>
-							<td class="active text-right">Name on Certificate </td>
-							<td>SHAJAN EMMANUEL</td>
-							<td rowspan="5" width="100px">
-								
-									
-									
-										<img src="/userFace/2023/2023-12-03/828636/10121293/H489924011700231657839.jpg" height="200px"/>
-									
-								
-							</td>
-						</tr>
-						<tr>
-							<td class="active text-right">Chinese Name</td>
-							<td>以马利</td>
-						</tr>
-						<tr>
-							<td class="active text-right">Nationality</td>
-							<td>澳大利亚</td>
-						</tr>
-						<tr>
-							<td class="active text-right">Gender</td>
-							<td>男</td>
-						</tr>
-						<tr>
-							<td colspan="2" class="" style="font-size:14px;">考试信息</td>
-						</tr>
-						<tr>
-							<td class="active text-right">考点名称</td>
-							<td colspan="2">丝绸之路国际教育中心网考（石家庄）</td>
-						</tr>
-						<tr>
-							<td class="active text-right">Ticket No.</td>
-							<td colspan="2">H42402899705300010&nbsp;&nbsp;H82402899705300012</td>
-						</tr>
-						<tr>
-							<td class="active text-right">证书编号</td>
-							<td colspan="2">H42403011520</td>
-						</tr>
-						<tr>
-							<td class="active text-right">Test Type</td>
-							
-							
-							      <td colspan="2">HSK四级</td>
-							
-						     
-						</tr>
-						
-						<tr>
-							<td class="active text-right">Test Time</td>
-							<td colspan="2">Mar 16, 2024</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			
-			
-			<div class="panel panel-default">
-				<!-- Default panel contents -->
-				<div class="panel-body">
-					HSK四级(Mar 16, 2024)中文水平考试
-					
-				</div>
-				<!-- Table -->
-				<table class="table table-bordered">
-					<thead>
-						<tr class="active">
-							
-								<th><div align="center">听力</div></th>
-							
-								<th><div align="center">阅读</div></th>
-							
-								<th><div align="center">写作</div></th>
-							
-							<th>
-							<div align="center">
-								
-									
-									Total Score
-								
-							</div>
-							</th>
-							
-								
-									<th><div align="center">Status</div></th>
-								
-							
-							
-							
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							
-								<td align="center">
-									56
-								</td>
-							
-								<td align="center">
-									94
-								</td>
-							
-								<td align="center">
-									80
-								</td>
-							
-							<td align="center">
-								
-									
-									230
-								
-							</td>
-							
-								
-									<td align="center">合格</td>
-								
-							
-							
-						</tr>
-					</tbody>
-				</table>
-				
-			</div>
-			
-			<!-- 越南才显示 或者 能关联上口语的才显示 flag 代表关联上成绩 180 越南-->
-			
-			
-				<div class="panel panel-default">
-					<!-- Default panel contents -->
-					<div class="panel-body">
-						HSKK（中级）(Mar 16, 2024)中文水平考试
-					</div>
-					<!-- Table -->
-					<table class="table table-bordered">
-						<thead>
-							<tr class="active">
-								
-								
-									<th><div align="center">口试</div></th>
-								
-								<th><div align="center">Total Score</div></th>
-								
-									
-										<th><div align="center">Status</div></th>
-									
-								
-								
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								
-									<td align="center">
-										42
-									</td>
-								
-								<td align="center">42</td>
-								
-									
-										<td align="center">不合格</td>
-									
-								
-								
-							</tr>
-						</tbody>
-					</table>
-					
-				</div>
-			
-			
-			
-			
-			<center>
-	  <h6>最终解释权归汉考国际所有</h6>
-	</center>
-			
-		</div>
-	</div>
-	
-</div>
+    private static String getCellValue(Document document, String label) {
+        Element labelElement = document.select("td:contains(" + label + ")").first();
+        return labelElement != null ? labelElement.text() : "Not Found";
+    }
+}
