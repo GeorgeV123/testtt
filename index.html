@@ -1,217 +1,205 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>中文考试成绩在线验证结果查询</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
 
-        .header-container {
-            text-align: center;
-            margin: 20px 0;
-        }
 
-        h4, h2 {
-            margin: 0;
-            font-weight: bold;
-        }
 
-        .profile-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
 
-        .profile-text {
-            flex: 1;
-            padding: 10px;
-            text-align: left;
-        }
 
-        .profile-img-container {
-            text-align: center;
-            margin: 10px;
-        }
 
-        .profile-img {
-            width: 120px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-        table {
-            width: 100%;
-            margin-bottom: 20px;
-            border-collapse: collapse;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        .table-title {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        .footer-note {
-            text-align: center;
-            font-size: 12px;
-            color: #555;
-            margin-top: 20px;
-        }
-
-        /* Ensuring full-screen view on mobile */
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .profile-container {
-                flex-direction: column;
-                align-items: center;
-                padding: 5px;
-            }
-
-            .profile-img {
-                width: 100px;
-                height: 120px;
-            }
-
-            th, td {
-                font-size: 12px;
-                padding: 8px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="header-container">
-        <h4>中文考试成绩在线验证结果查询</h4>
-        <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
-    </div>
-
-    <!-- Profile Information -->
-    <div class="profile-container">
-        <div class="profile-text">
-            <table>
-                <tr>
-                    <td><strong>Name on Certificate</strong></td>
-                    <td>SHAJAN EMMANUEL</td>
-                </tr>
-                <tr>
-                    <td><strong>Chinese Name</strong></td>
-                    <td>以马利</td>
-                </tr>
-                <tr>
-                    <td><strong>Nationality</strong></td>
-                    <td>澳大利亚</td>
-                </tr>
-                <tr>
-                    <td><strong>Gender</strong></td>
-                    <td>男</td>
-                </tr>
-            </table>
-        </div>
-        <div class="profile-img-container">
-            <img src="profile-image.jpg" alt="Profile Photo" class="profile-img">
-        </div>
-    </div>
-
-    <!-- Test Information -->
-    <table>
-        <tr>
-            <td colspan="3" class="table-title">Information of Test Taker</td>
-        </tr>
-        <tr>
-            <th>Ticket No.</th>
-            <td colspan="2">H42402899705300010</td>
-        </tr>
-        <tr>
-            <th>Test Type</th>
-            <td colspan="2">HSK四级</td>
-        </tr>
-        <tr>
-            <th>Test Time</th>
-            <td colspan="2">Mar 16, 2024</td>
-        </tr>
-        <tr>
-            <th>Test Site</th>
-            <td colspan="2">丝绸之路国际教育中心</td>
-        </tr>
-    </table>
-
-    <!-- HSK Results -->
-    <table>
-        <tr>
-            <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
-        </tr>
-        <tr>
-            <th>听力 (Listening)</th>
-            <th>阅读 (Reading)</th>
-            <th>写作 (Writing)</th>
-            <th>Total Score</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>56</td>
-            <td>94</td>
-            <td>80</td>
-            <td>230</td>
-            <td>合格</td>
-        </tr>
-    </table>
-
-    <!-- HSKK Results -->
-    <table>
-        <tr>
-            <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
-        </tr>
-        <tr>
-            <th>口试 (Speaking)</th>
-            <th>Total Score</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>42</td>
-            <td>42</td>
-            <td>不合格</td>
-        </tr>
-    </table>
-
-    <p class="footer-note">最终解释权归汉考国际所有</p>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/phone/phone.css" type="text/css">
+<div class="well-sm">
+	
+	<center>
+	  <h2>中文考试成绩在线验证结果查询</h3>
+	  <h4>汉考国际教育科技（北京）有限公司（CTI）</h4>
+	</center>
+	<div class="panel panel-default">
+		<div class="well-lg" >
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-body">
+					Information of test taker 
+				</div>
+				<!-- Table -->
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td class="active text-right">Name on Certificate </td>
+							<td>SHAJAN EMMANUEL</td>
+							<td rowspan="5" width="100px">
+								
+									
+									
+										<img src="/userFace/2023/2023-12-03/828636/10121293/H489924011700231657839.jpg" height="200px"/>
+									
+								
+							</td>
+						</tr>
+						<tr>
+							<td class="active text-right">Chinese Name</td>
+							<td>以马利</td>
+						</tr>
+						<tr>
+							<td class="active text-right">Nationality</td>
+							<td>澳大利亚</td>
+						</tr>
+						<tr>
+							<td class="active text-right">Gender</td>
+							<td>男</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="" style="font-size:14px;">考试信息</td>
+						</tr>
+						<tr>
+							<td class="active text-right">考点名称</td>
+							<td colspan="2">丝绸之路国际教育中心网考（石家庄）</td>
+						</tr>
+						<tr>
+							<td class="active text-right">Ticket No.</td>
+							<td colspan="2">H42402899705300010&nbsp;&nbsp;H82402899705300012</td>
+						</tr>
+						<tr>
+							<td class="active text-right">证书编号</td>
+							<td colspan="2">H42403011520</td>
+						</tr>
+						<tr>
+							<td class="active text-right">Test Type</td>
+							
+							
+							      <td colspan="2">HSK四级</td>
+							
+						     
+						</tr>
+						
+						<tr>
+							<td class="active text-right">Test Time</td>
+							<td colspan="2">Mar 16, 2024</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-body">
+					HSK四级(Mar 16, 2024)中文水平考试
+					
+				</div>
+				<!-- Table -->
+				<table class="table table-bordered">
+					<thead>
+						<tr class="active">
+							
+								<th><div align="center">听力</div></th>
+							
+								<th><div align="center">阅读</div></th>
+							
+								<th><div align="center">写作</div></th>
+							
+							<th>
+							<div align="center">
+								
+									
+									Total Score
+								
+							</div>
+							</th>
+							
+								
+									<th><div align="center">Status</div></th>
+								
+							
+							
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							
+								<td align="center">
+									56
+								</td>
+							
+								<td align="center">
+									94
+								</td>
+							
+								<td align="center">
+									80
+								</td>
+							
+							<td align="center">
+								
+									
+									230
+								
+							</td>
+							
+								
+									<td align="center">合格</td>
+								
+							
+							
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+			
+			<!-- 越南才显示 或者 能关联上口语的才显示 flag 代表关联上成绩 180 越南-->
+			
+			
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-body">
+						HSKK（中级）(Mar 16, 2024)中文水平考试
+					</div>
+					<!-- Table -->
+					<table class="table table-bordered">
+						<thead>
+							<tr class="active">
+								
+								
+									<th><div align="center">口试</div></th>
+								
+								<th><div align="center">Total Score</div></th>
+								
+									
+										<th><div align="center">Status</div></th>
+									
+								
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								
+									<td align="center">
+										42
+									</td>
+								
+								<td align="center">42</td>
+								
+									
+										<td align="center">不合格</td>
+									
+								
+								
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+			
+			
+			
+			
+			<center>
+	  <h6>最终解释权归汉考国际所有</h6>
+	</center>
+			
+		</div>
+	</div>
+	
 </div>
-
-</body>
-</html>
