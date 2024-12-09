@@ -1,49 +1,225 @@
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.HttpStatusException;
-
-public class ExamResultsFetcher {
-    public static void main(String[] args) {
-        String url = "https://adminchinesetest.cn"; // Replace with your actual endpoint
-
-        try {
-            // Fetch the HTML response
-            Document document = Jsoup.connect(url).get();
-
-            // Parse and extract relevant information
-            String name = getNextCellValue(document, "Name on Certificate");
-            String chineseName = getNextCellValue(document, "Chinese Name");
-            String nationality = getNextCellValue(document, "Nationality");
-            String gender = getNextCellValue(document, "Gender");
-            String totalScore = getCellValue(document, "Total Score");
-            String status = getCellValue(document, "Status");
-
-            // Print the results
-            System.out.println("Name: " + name);
-            System.out.println("Chinese Name: " + chineseName);
-            System.out.println("Nationality: " + nationality);
-            System.out.println("Gender: " + gender);
-            System.out.println("Total Score: " + totalScore);
-            System.out.println("Status: " + status);
-        } catch (HttpStatusException e) {
-            System.out.println("HTTP error fetching URL: " + e.getStatusCode() + " " + e.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace(); // Print any other errors encountered
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中文考试成绩在线验证结果查询</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
         }
-    }
 
-    private static String getNextCellValue(Document document, String label) {
-        Element labelElement = document.select("td:contains(" + label + ")").first();
-        if (labelElement != null) {
-            Element nextCell = labelElement.nextElementSibling();
-            return nextCell != null ? nextCell.text() : "Not Found";
+        /* General table styling */
+        .table-container {
+            overflow-x: auto;
+            margin: 15px auto;
+            width: 95%;
         }
-        return "Not Found";
-    }
 
-    private static String getCellValue(Document document, String label) {
-        Element labelElement = document.select("td:contains(" + label + ")").first();
-        return labelElement != null ? labelElement.text() : "Not Found";
-    }
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Profile image styling */
+        .profile-img {
+            width: 180px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-row {
+            text-align: center;
+        }
+
+        /* Header container styling */
+        .header-container {
+            border: 2px solid #655c5c;
+            margin: 10px auto;
+            padding: 15px;
+            width: 95%;
+            max-width: 1200px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h4, h2 {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        /* Styling for table headings */
+        .table-title {
+            font-weight: bold;
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .highlight-column {
+            background-color: #f5f5f5;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Inside container styling */
+        .inside-container {
+            text-align: right;
+            background-color: #f5f5f5;
+        }
+
+        .inside-container-left {
+            text-align: left;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 150px;
+            }
+
+            .inside-container,
+            .inside-container-left {
+                text-align: left;
+                padding: 8px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .table-container {
+                overflow-x: auto;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                display: block;
+                text-align: left;
+                padding: 6px;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 120px;
+            }
+
+            .inside-container,
+            .inside-container-left {
+                text-align: left;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header-container">
+    <h4>中文考试成绩在线验证结果查询</h4>
+    <h2>汉考国际教育科技 (北京) 有限公司 (CTI)</h2>
+</div>
+
+<!-- Test Taker Information -->
+<div class="panel">
+    <div class="table-container">
+        <table>
+            <tr>
+                <td colspan="3" class="table-title">Information of Test Taker</td>
+            </tr>
+            <tr>
+                <th class="inside-container">Name on Certificate</th>
+                <td class="inside-container-left">SHAJAN EMMANUEL</td>
+                <td rowspan="4" class="profile-row">
+                    <img src="senti.jpg" alt="Profile Photo" class="profile-img">
+                </td>
+            </tr>
+            <tr>
+                <th class="inside-container">Chinese Name</th>
+                <td class="inside-container-left">以马利</td>
+            </tr>
+            <tr>
+                <th class="inside-container">Nationality</th>
+                <td class="inside-container-left">澳大利亚</td>
+            </tr>
+            <tr>
+                <th class="inside-container">Gender</th>
+                <td class="inside-container-left">男</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <td colspan="5" class="table-title">HSK Results (Mar 16, 2024)</td>
+            </tr>
+            <tr class="highlight-column">
+                <th>听力 (Listening)</th>
+                <th>阅读 (Reading)</th>
+                <th>写作 (Writing)</th>
+                <th>Total Score</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>94</td>
+                <td>80</td>
+                <td>230</td>
+                <td>合格</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <td colspan="3" class="table-title">HSKK Results (Mar 16, 2024)</td>
+            </tr>
+            <tr class="highlight-column">
+                <th>口试 (Speaking)</th>
+                <th>Total Score</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>42</td>
+                <td>不合格</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<p class="footer-note">最终解释权归汉考国际所有</p>
+</body>
+</html>
